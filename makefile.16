@@ -1,0 +1,4 @@
+# Makefile for a STUPID demo.
+
+xdemo.exe: xdemo.c modex.h 
+        wcl /ms /k8192 xdemo.c x_wc16s.obj

@@ -1,0 +1,60 @@
+       A MODEX LIBRARY FOR USE WITH WATCOM C/C++ 32 UNDER DOS4GW
+                            FLAT MEMORY MODELL
+
+-What is it?
+Hi all. I really hate writing docs, so I won't make it long....:) If you don't
+know anything about modex, see it as a video-mode which works on almost ANY
+vga-card, with some real cool possibilities. My library supports 320x240x256 
+with 3.5 video pages.
+(for more info on modex see: ftp://x2ftp.oulu.fi/pub/msdos/programming).
+To get back on the question: This is a package containing a few graphic 
+routines for modex, for use with the faboulous Watcom c/c++ 32-bit protected
+mode compiler. 
+
+-Okay, what does it contain?
+The archive you just unpacked contains a few routines to do things in modex
+
+Currently implemented are routines to:
+*initialise/close modex
+*support paging (up to 3.5 pages )
+*do palette handling (set, get, fade)
+*clear the screen
+*wait for the Vertical Retrace (VRT)
+*draw polygons
+*BitBlit horizontal lines
+*And last but not least: write pixels
+
+-How does it work?
+It is very simple. Just include the modex.h header file in your source, and
+use wcl386 to compile the source and link the object file x_wc32f.obj to it.
+eg, to compile the (lame) demo try this:
+wcl386 /4r /mf /l=dos4g /k8192 xdemo.c x_wc32f.obj
+Be sure to insert the /k8192 option. This gives an 8kb stack, which is
+necessary. You can also do a "wmake"
+
+
+If you want to change the asm source, you must have TASM 3.2 or higher to
+re-assemble it.
+
+-For who is this intended?
+I wrote this modex lib because I wanted to code a demo (it still isn't
+finished, but MY problem:(). This means I coded all the routines in higly
+optimized assembly language. The library is therefor intended for ppl who
+want to code their own demo, or something else that requires REAL speed.
+It is also by no means complete. A lot of standard routines, eg a line rou-
+tine, are not implemented, simply because I didn't need them.
+So: Code a demo with this! It takes very much time to write such a library. 
+I WASTED too much time writing these routines, so I still haven't been creative,
+and I still haven't written a cool demo.
+
+-Warranty.
+Under GNU Public Licence.
+
+-Remarks
+Send bug-reports or suggestions to:
+geertj@stack.urc.tue.nl
+,flames to:
+/dev/null
+
+Take care, and happy coding: 
+Geert Jansen.
